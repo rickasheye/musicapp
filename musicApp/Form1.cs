@@ -8,19 +8,33 @@ using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace musicApp
 {
     public partial class Form1 : Form
     {
         public List<MusicBlock> blocks = new List<MusicBlock>();
+        public static SaveFile file;
 
         public Form1()
         {
             InitializeComponent();
+            //Loading the SaveFile
+            if (File.Exists("savefile.json"))
+            {
+                file = SaveFile.LoadFromFile("savefile.json");
+                if (file.blocks != null)
+                {
+                    blocks.AddRange(file.blocks); 
+                }
+            }
+            else
+            {
+                new SaveFile().SaveToFile("savefile.json");
+            }
             //Load up the blocks if there is some
             LoadBlocks();
-            //Load the block Modifier
         }
 
         public void LoadBlocks()
@@ -46,6 +60,7 @@ namespace musicApp
             newButton.Text = message;
             newButton.Size = new Size(200, 200);
             newButton.Click += delegate { listenAction(); };
+            newButton.TabStop = false;
             flowLayoutPanel1.Controls.Add(newButton);
         }
 
@@ -66,16 +81,32 @@ namespace musicApp
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-
+            PlaySound(e.KeyCode.ToString());
         }
 
         private void FlowLayoutPanel1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            Console.WriteLine(e.KeyCode.ToString());
+            PlaySound(e.KeyCode.ToString());
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                file.blocks = blocks.ToArray();
+                file.SaveToFile("savefile.json");
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        public void PlaySound(string keyCode)
+        {
             foreach (MusicBlock block in blocks)
             {
                 //Trigger that block
-                if (e.KeyCode.ToString() == block.keyCode)
+                if (keyCode == block.keyCode)
                 {
                     //Play that sound\
                     Console.WriteLine("Playing sound...");

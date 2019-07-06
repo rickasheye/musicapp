@@ -29,6 +29,7 @@ namespace musicApp
         private void Button2_Click(object sender, EventArgs e)
         {
             //Browse for a file and put the path into the textbox
+            openFileDialog1.Filter = "WAV files (*.wav)|*.wav|MP3 Files (*.mp3)|*.mp3|All files (*.*)|*.*";
             DialogResult result = openFileDialog1.ShowDialog();
             if(result == DialogResult.OK)
             {
@@ -67,8 +68,7 @@ namespace musicApp
 
         private void ModifyBlock_FormClosing(object sender, FormClosingEventArgs e)
         {
-            parsedForm.AddBlock("tryblock", null);
-            parsedForm.LoadBlocks();
+            parsedForm.flowLayoutPanel1.Focus();
         }
     }
 }

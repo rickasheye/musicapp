@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace musicApp
 {
-    class SaveFile
+    public class SaveFile
     {
 
         [JsonProperty("MusicClasses")]
-        internal MusicBlock blocks;
+        public MusicBlock[] blocks;
 
         public static SaveFile LoadFromFile(string path)
         {
