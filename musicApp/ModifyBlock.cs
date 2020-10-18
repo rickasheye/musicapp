@@ -12,10 +12,10 @@ namespace musicApp
 {
     public partial class ModifyBlock : Form
     {
-        Form1 parsedForm;
+        BlockWindow parsedForm;
         int indexModdedBlock;
 
-        public ModifyBlock(int moddedBlock, Form1 form)
+        public ModifyBlock(int moddedBlock, BlockWindow form)
         {
             InitializeComponent();
             parsedForm = form;

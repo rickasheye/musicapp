@@ -12,3 +12,17 @@ C:\Users\rickasheye\source\repos\musicApp\musicApp\bin\Debug\Newtonsoft.Json.dll
 C:\Users\rickasheye\source\repos\musicApp\musicApp\bin\Debug\Newtonsoft.Json.xml
 C:\Users\rickasheye\source\repos\musicApp\musicApp\obj\Debug\musicApp.ModifyBlock.resources
 C:\Users\rickasheye\source\repos\musicApp\musicApp\obj\Debug\musicApp.csproj.CopyComplete
+C:\Users\lethen\Source\Repos\musicapp\musicApp\bin\Debug\musicApp.exe.config
+C:\Users\lethen\Source\Repos\musicapp\musicApp\bin\Debug\musicApp.exe
+C:\Users\lethen\Source\Repos\musicapp\musicApp\bin\Debug\musicApp.pdb
+C:\Users\lethen\Source\Repos\musicapp\musicApp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\lethen\Source\Repos\musicapp\musicApp\bin\Debug\Newtonsoft.Json.xml
+C:\Users\lethen\Source\Repos\musicapp\musicApp\obj\Debug\musicApp.csprojAssemblyReference.cache
+C:\Users\lethen\Source\Repos\musicapp\musicApp\obj\Debug\musicApp.Form1.resources
+C:\Users\lethen\Source\Repos\musicapp\musicApp\obj\Debug\musicApp.ModifyBlock.resources
+C:\Users\lethen\Source\Repos\musicapp\musicApp\obj\Debug\musicApp.Properties.Resources.resources
+C:\Users\lethen\Source\Repos\musicapp\musicApp\obj\Debug\musicApp.csproj.GenerateResource.cache
+C:\Users\lethen\Source\Repos\musicapp\musicApp\obj\Debug\musicApp.csproj.CoreCompileInputs.cache
+C:\Users\lethen\Source\Repos\musicapp\musicApp\obj\Debug\musicApp.csproj.CopyComplete
+C:\Users\lethen\Source\Repos\musicapp\musicApp\obj\Debug\musicApp.exe
+C:\Users\lethen\Source\Repos\musicapp\musicApp\obj\Debug\musicApp.pdb
