@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,7 @@ namespace musicApp
         {
             using(var sr = new StreamReader(path))
             {
+                if (Program.DebugMode) { Console.WriteLine("Deserializing file in: " + path); }
                 return JsonConvert.DeserializeObject<SaveFile>(sr.ReadToEnd());
             }
         }
@@ -27,6 +29,7 @@ namespace musicApp
             using(var sw = new StreamWriter(path))
             {
                 sw.Write(JsonConvert.SerializeObject(this));
+                if (Program.DebugMode == true) { Console.WriteLine("Saved file in: " + path); }
             }
         }
     }

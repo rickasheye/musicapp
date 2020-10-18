@@ -1,4 +1,5 @@
-﻿using System;
+﻿using musicApp.Types.UIElements;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,142 +11,63 @@ using System.Windows.Forms;
 
 namespace musicApp
 {
-    public struct Vector2
-    {
-        public int x;
-        public int y;
-    }
-
-    public class UIElement
-    {
-        public int x;
-        public int y;
-        public int sizex;
-        public int sizey;
-
-        public UIElement(int x, int y, int sizex, int sizey)
-        {
-            this.x = x;
-            this.y = y;
-            this.sizex = sizex;
-            this.sizey = sizey;
-        }
-
-        public UIElement(int x, int y)
-        {
-            this.x = x;
-            this.y = y;
-            sizex = 30;
-            sizey = 30;
-        }
-
-        public void SetPosition(int x, int y)
-        {
-            this.x = x;
-            this.y = y;
-        }
-
-        public void SetPosition(float x, float y)
-        {
-            this.x = (int)x;
-            this.y = (int)y;
-        }
-
-        public void SetPosition(Vector2 position)
-        {
-            this.x = position.x;
-            this.y = position.y;
-        }
-
-        public void SetSize(int sizex, int sizey)
-        {
-            this.sizex = sizex;
-            this.sizey = sizey;
-        }
-
-        public void SetSize(float sizex, float sizey)
-        {
-            this.sizex = (int)sizex;
-            this.sizey = (int)sizey;
-        }
-
-        public void SetSize(Vector2 size)
-        {
-            this.sizex = size.x;
-            this.sizey = size.y;
-        }
-
-        public void SetSizePosition(int x, int y, int sizex, int sizey)
-        {
-            this.sizex = sizex;
-            this.sizey = sizey;
-            this.x = x;
-            this.y = y;
-        }
-
-        public virtual void DrawElement(int mousex, int mousey)
-        {
-            //Draw the element!
-        }
-    }
-
-    public enum SliderDirection
-    {
-        HORIZONTAL, VERTICAL
-    }
-
-    public class UIElementSlider : UIElement
-    {
-        public SliderDirection directionSlider;
-        //ahhhhhh
-        public UIElementSlider(int x, int y, int sizex, int sizey):base(x, y, sizex, sizey){}
-
-        public UIElementSlider(int x, int y):base(x, y){}
-
-        public override void DrawElement(int mousex, int mousey)
-        {
-            base.DrawElement(mousex, mousey);
-            //Draw the Slider comeon PS: this is called on every frame....
-
-        }
-    }
-
-    public class UIElementListBox : UIElement
-    {
-        //used to store elements in a box
-        public UIElementListBox(int x, int y, int sizex, int sizey) : base(x, y, sizex, sizey) { }
-        public UIElementListBox(int x, int y) : base(x, y) { }
-
-        public List<UIElement> uiElements = new List<UIElement>();
-
-        public void AddElement()
-        {
-
-        }
-
-        public void RemoveElement()
-        {
-
-        }
-
-        public bool ElementExists()
-        {
-            //Check if the element exists here!!!
-            return false;
-        }
-    }
-
     public partial class Timeline : Form
     {
+        public bool PlayMode = false;
+        public bool recording = false;
+
         public Timeline()
         {
             InitializeComponent();
+            //Initialise the control panel like enabling and disabling buttons!!!
+            if(PlayMode)
+            {
+                //Then we want to disable the play and stop buttons!
+                playButton.Enabled = false;
+                stopButton.Enabled = false;
+            }
+
+            if (!recording)
+            {
+                stopButtonRecord.Enabled = false;
+                recordButton.Enabled = true;
+            }
         }
 
-        //DRAWING OPTIONS FOR TIMELINE
-        public void DrawSlider()
-        {
+        public List<UIElement> uiElements = new List<UIElement>();
 
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            //Call the List Box for the main drawing and paste it here!!!
+            if (uiElements.Count > 0)
+            {
+                foreach (UIElement element in uiElements)
+                {
+                    element.DrawElement(e.Graphics);
+                } 
+            }
+        }
+
+        BlockWindow window;
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Open the block editor
+            if(window == null)
+            {
+                window = new BlockWindow();
+                window.Show();
+            }
+        }
+
+        private void newTimeline_Click(object sender, EventArgs e)
+        {
+            //Create a new timeline for the thing to sit on...
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            //Save the newly edited stuff...
         }
     }
 }

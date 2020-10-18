@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{BCAC0DD9-A29B-4C92-88AD-AF0D56AB0444}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>musicApp</RootNamespace>
     <AssemblyName>musicApp</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -32,7 +32,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>musicApp.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NAudio, Version=1.10.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.1.10.0\lib\net35\NAudio.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -65,10 +71,20 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SaveFile.cs" />
-    <Compile Include="Timeline.cs" />
+    <Compile Include="storeMusic.cs" />
+    <Compile Include="Timeline.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Timeline.Designer.cs">
       <DependentUpon>Timeline.cs</DependentUpon>
     </Compile>
+    <Compile Include="Types\TimelineObject.cs" />
+    <Compile Include="Types\UIElements\UIElement.cs" />
+    <Compile Include="Types\UIElements\UIElementListBox.cs" />
+    <Compile Include="Types\UIElements\UIElementButton.cs" />
+    <Compile Include="Types\UIElements\UIElementText.cs" />
+    <Compile Include="Types\UIElements\UIElementSlider.cs" />
+    <Compile Include="Types\Vector2.cs" />
     <EmbeddedResource Include="BlockWindow.resx">
       <DependentUpon>BlockWindow.cs</DependentUpon>
     </EmbeddedResource>

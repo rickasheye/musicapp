@@ -100,7 +100,7 @@ namespace musicApp
                 }
                 else
                 {
-                    Console.WriteLine("No blocks avaliable apparently!");
+                    if (Program.DebugMode) { Console.WriteLine("No blocks avaliable apparently!"); }
                 }
             }
             catch (Exception)
@@ -116,12 +116,28 @@ namespace musicApp
                 if (keyCode == block.keyCode)
                 {
                     //Play that sound\
-                    Console.WriteLine("Playing sound...");
+                    if (Program.DebugMode) { Console.WriteLine("Playing sound..."); }
                     SoundPlayer player = new SoundPlayer();
+                    string codeFIle = Path.Combine(storeMusic.filePath, Path.GetFileName(block.musicFilePath));
+                    if(File.Exists(block.musicFilePath) && !File.Exists(codeFIle)){storeMusic.AddMusicFile(block.musicFilePath); block.musicFilePath = codeFIle; }
                     player.SoundLocation = block.musicFilePath;
-                    player.Play();
+                    if (File.Exists(block.musicFilePath))
+                    {
+                        player.Play();
+                    }
+                    else
+                    {
+                        if (Directory.Exists(block.musicFilePath) && Program.DebugMode) { Console.WriteLine("This is a directory..."); }
+                        if (Program.DebugMode) { Console.WriteLine("File doesnt exist at : " + block.musicFilePath); }
+                    }
+                    if (Program.DebugMode) { Console.WriteLine("Finished Playing Sound..."); }
                 }
             }
+        }
+
+        private void BlockWindow_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
