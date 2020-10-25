@@ -68,6 +68,9 @@
       <DependentUpon>ModifyBlock.cs</DependentUpon>
     </Compile>
     <Compile Include="MusicBlock.cs" />
+    <Compile Include="packages\Plugin.cs" />
+    <Compile Include="packages\PluginFileMeta.cs" />
+    <Compile Include="packages\PluginLoader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SaveFile.cs" />
@@ -78,6 +81,7 @@
     <Compile Include="Timeline.Designer.cs">
       <DependentUpon>Timeline.cs</DependentUpon>
     </Compile>
+    <Compile Include="Types\ProgramMeta.cs" />
     <Compile Include="Types\TimelineObject.cs" />
     <Compile Include="Types\UIElements\UIElement.cs" />
     <Compile Include="Types\UIElements\UIElementListBox.cs" />
