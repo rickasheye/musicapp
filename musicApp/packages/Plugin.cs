@@ -138,13 +138,28 @@ namespace musicApp.packages
                     {
                         if(args[2] != null)
                         {
-
+                            //execute the code.
+                            Program.metaFile.writeString(args[1], args[2], true);
+                        }
+                        else
+                        {
+                            if (Program.DebugMode) { Console.WriteLine("You are missing the second argument for which is the value to assign to: " + args[1] + " did not assign"); }
                         }
                     }
-                    Program.metaFile.writeString(args[1], args[2], true);
+                    else
+                    {
+                        if (Program.DebugMode) { Console.WriteLine("You need a variable name and a variable value to use this!"); }
+                    }
                     break;
                 case "REPEAT":
-                    evalCommand(String.Concat(args.Where(arg => !arg.Contains("REPEAT"))));
+                    if (args[1] != null)
+                    {
+                        evalCommand(String.Concat(args.Where(arg => !arg.Contains("REPEAT"))));
+                    }
+                    else
+                    {
+                        if (Program.DebugMode) { Console.WriteLine("Repeat Command needs a command to repeat with."); }
+                    }
                     break;
             }
         }

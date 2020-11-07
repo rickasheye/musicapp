@@ -207,13 +207,20 @@ namespace musicApp.Types
             }
             else
             {
-                if (Program.DebugMode) { Console.WriteLine("Loading program metadata file!"); }
-                //Pretty much this is where we want to load the file
-                ProgramMeta metaFile = JsonConvert.DeserializeObject<ProgramMeta>(File.ReadAllText(filePath));
-                Program.DebugMode = metaFile.debugMode;
-                debugMode = metaFile.debugMode;
-                dictionary = metaFile.dictionary;
-                if (Program.DebugMode) { Console.WriteLine("Finished loading program meta file!!"); }
+                if (File.ReadAllText(filePath).Length>0)
+                {
+                    if (Program.DebugMode) { Console.WriteLine("Loading program metadata file!"); }
+                    //Pretty much this is where we want to load the file
+                    ProgramMeta metaFile = JsonConvert.DeserializeObject<ProgramMeta>(File.ReadAllText(filePath));
+                    Program.DebugMode = metaFile.debugMode;
+                    debugMode = metaFile.debugMode;
+                    dictionary = metaFile.dictionary;
+                    if (Program.DebugMode) { Console.WriteLine("Finished loading program meta file!!"); }
+                }
+                else
+                {
+                    SaveData(filePath);
+                }
             }
         }
 

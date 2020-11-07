@@ -13,6 +13,8 @@ namespace musicApp
     static class Program
     {
         public static bool DebugMode = true;
+        public static int programVersion = 2;
+
         public static ProgramMeta metaFile;
         public static string fileMetaPath;
 
@@ -25,24 +27,36 @@ namespace musicApp
         [STAThread]
         static void Main()
         {
-            if (DebugMode) { Console.WriteLine("Hello and welcome to debug mode of the Slap My Meat Audio Mixer"); }
-            if(metaFile == null)
+            try
             {
-                if(fileMetaPath == null) { fileMetaPath = Path.Combine(Directory.GetCurrentDirectory(), "/metaFile"); }
-                metaFile.LoadData(fileMetaPath);
+                if (DebugMode) { Console.WriteLine("Hello and welcome to debug mode of the Slap My Meat Audio Mixer"); }
+                if (metaFile == null)
+                {
+                    metaFile = new ProgramMeta();
+                }
+
+                if (metaFile != null)
+                {
+                    if (fileMetaPath == null || fileMetaPath == "") { fileMetaPath = Path.Combine(Environment.CurrentDirectory, "metaFile"); }
+                    metaFile.LoadData(fileMetaPath);
+                }
+                if (DebugMode) { Console.WriteLine("Loaded metadata file..."); }
+                //We want to load the plugins into the system!!!
+                if (loader == null)
+                {
+                    loader = new PluginLoader();
+                    loader.LoadPlugins();
+                }
+                if (DebugMode) { Console.WriteLine("Loaded all plugins!!!"); }
+                AppDomain.CurrentDomain.ProcessExit += new EventHandler(stopConsole);
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new Timeline());
             }
-            if (DebugMode) { Console.WriteLine("Loaded metadata file..."); }
-            //We want to load the plugins into the system!!!
-            if(loader == null)
+            catch (Exception e)
             {
-                loader = new PluginLoader();
-                loader.LoadPlugins();
+                Console.WriteLine("hehe you crashed: " + e);
             }
-            if (DebugMode) { Console.WriteLine("Loaded all plugins!!!"); }
-            AppDomain.CurrentDomain.ProcessExit += new EventHandler(stopConsole);
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Timeline());
         }
 
         public static void stopConsole(object sender, EventArgs e)
@@ -50,7 +64,6 @@ namespace musicApp
             //stopping console.
             if (DebugMode) { Console.WriteLine("Stopping Console..."); }
             metaFile.SaveData(fileMetaPath);
-            
         }
     }
 }

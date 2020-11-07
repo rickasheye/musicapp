@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Rectangle = System.Drawing.Rectangle;
 namespace musicApp.Types.UIElements
 {
     public enum SliderDirection
@@ -40,6 +40,7 @@ namespace musicApp.Types.UIElements
             }
         }
 
+
         int position = 1;
         public override void DrawElement(int mousex, int mousey, Graphics g)
         {
@@ -48,12 +49,12 @@ namespace musicApp.Types.UIElements
             if (draw != false)
             {
                 //Still want to draw a rectange just want to adjust where the slider acts.
-                g.DrawRectangle(new Pen(new SolidBrush(Color.Black)), new Rectangle(new Point(x, y), new Size(sizex, sizey)));
+                g.DrawRectangle(new Pen(new SolidBrush(Color.Black)), new System.Drawing.Rectangle(new Point(x, y), new Size(sizex, sizey)));
                 switch (directionSlider)
                 {
                     case SliderDirection.HORIZONTAL:
                         //Draw the slider on a horizontal axis!!!
-                        g.DrawRectangle(new Pen(new SolidBrush(Color.Gray)), new Rectangle(new Point(x * position, y), new Size((sizex / elements.Count) * position, sizey)));
+                        g.DrawRectangle(new Pen(new SolidBrush(Color.Gray)), new System.Drawing.Rectangle(new Point(x * position, y), new Size((sizex / elements.Count) * position, sizey)));
                         //When the mouse if over the bar
                         if(mousex > x * position && mousex < x + sizex * position)
                         {
@@ -66,7 +67,7 @@ namespace musicApp.Types.UIElements
                         break;
                     case SliderDirection.VERTICAL:
                         //Draw the slider on a vertical axis!!!
-                        g.DrawRectangle(new Pen(new SolidBrush(Color.Gray)), new Rectangle(new Point(x, y), new Size(sizex, sizey /elements.Count)));
+                        g.DrawRectangle(new Pen(new SolidBrush(Color.Gray)), new System.Drawing.Rectangle(new Point(x, y), new Size(sizex, sizey /elements.Count)));
                         if (mousex > x && mousex < x + sizex / elements.Count)
                         {
                             if (mousey > y && mousey < y + sizey / elements.Count)

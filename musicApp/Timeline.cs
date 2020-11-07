@@ -69,5 +69,16 @@ namespace musicApp
         {
             //Save the newly edited stuff...
         }
+
+        private void variableViewerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DebugTool tool = new DebugTool();
+            tool.Show();
+        }
+
+        private void playToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -90,8 +90,8 @@ namespace musicApp.Types.UIElements
 
         public void SetPosition(Vector2 position)
         {
-            this.x = position.x;
-            this.y = position.y;
+            this.x = Mathf.RoundToInt(position.x);
+            this.y = Mathf.RoundToInt(position.y);
         }
 
         public void SetSize(int sizex, int sizey)
@@ -108,8 +108,8 @@ namespace musicApp.Types.UIElements
 
         public void SetSize(Vector2 size)
         {
-            this.sizex = size.x;
-            this.sizey = size.y;
+            this.sizex = Mathf.RoundToInt(size.x);
+            this.sizey = Mathf.RoundToInt(size.y);
         }
 
         public void SetSizePosition(int x, int y, int sizex, int sizey)

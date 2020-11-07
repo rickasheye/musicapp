@@ -27,3 +27,6 @@ C:\Users\lethen\Source\Repos\musicapp\musicApp\obj\Debug\musicApp.exe
 C:\Users\lethen\Source\Repos\musicapp\musicApp\obj\Debug\musicApp.pdb
 C:\Users\lethen\Source\Repos\musicapp\musicApp\obj\Debug\musicApp.BlockWindow.resources
 C:\Users\lethen\Source\Repos\musicapp\musicApp\obj\Debug\musicApp.Timeline.resources
+C:\Users\lethen\Source\Repos\musicapp\musicApp\bin\Debug\NAudio.dll
+C:\Users\lethen\Source\Repos\musicapp\musicApp\bin\Debug\NAudio.xml
+C:\Users\lethen\Source\Repos\musicapp\musicApp\obj\Debug\musicApp.DebugTool.resources

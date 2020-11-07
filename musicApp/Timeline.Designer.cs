@@ -28,52 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.recordButton = new System.Windows.Forms.Button();
-            this.stopButtonRecord = new System.Windows.Forms.Button();
-            this.stopButton = new System.Windows.Forms.Button();
-            this.playButton = new System.Windows.Forms.Button();
             this.canvas = new System.Windows.Forms.PictureBox();
-            this.blockEditor = new System.Windows.Forms.Button();
-            this.newTimeline = new System.Windows.Forms.Button();
-            this.saveButton = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.recordButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopButtonRecord = new System.Windows.Forms.ToolStripMenuItem();
+            this.newTimelineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveEditsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.variableViewerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.blockEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.playButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopButton = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // recordButton
-            // 
-            this.recordButton.Location = new System.Drawing.Point(12, 12);
-            this.recordButton.Name = "recordButton";
-            this.recordButton.Size = new System.Drawing.Size(75, 23);
-            this.recordButton.TabIndex = 0;
-            this.recordButton.Text = "Record";
-            this.recordButton.UseVisualStyleBackColor = true;
-            // 
-            // stopButtonRecord
-            // 
-            this.stopButtonRecord.Location = new System.Drawing.Point(93, 12);
-            this.stopButtonRecord.Name = "stopButtonRecord";
-            this.stopButtonRecord.Size = new System.Drawing.Size(75, 23);
-            this.stopButtonRecord.TabIndex = 1;
-            this.stopButtonRecord.Text = "Stop";
-            this.stopButtonRecord.UseVisualStyleBackColor = true;
-            // 
-            // stopButton
-            // 
-            this.stopButton.Location = new System.Drawing.Point(713, 12);
-            this.stopButton.Name = "stopButton";
-            this.stopButton.Size = new System.Drawing.Size(75, 23);
-            this.stopButton.TabIndex = 2;
-            this.stopButton.Text = "Stop";
-            this.stopButton.UseVisualStyleBackColor = true;
-            // 
-            // playButton
-            // 
-            this.playButton.Location = new System.Drawing.Point(632, 12);
-            this.playButton.Name = "playButton";
-            this.playButton.Size = new System.Drawing.Size(75, 23);
-            this.playButton.TabIndex = 3;
-            this.playButton.Text = "Play";
-            this.playButton.UseVisualStyleBackColor = true;
             // 
             // canvas
             // 
@@ -84,66 +54,127 @@
             this.canvas.TabStop = false;
             this.canvas.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             // 
-            // blockEditor
+            // menuStrip1
             // 
-            this.blockEditor.Location = new System.Drawing.Point(551, 12);
-            this.blockEditor.Name = "blockEditor";
-            this.blockEditor.Size = new System.Drawing.Size(75, 23);
-            this.blockEditor.TabIndex = 5;
-            this.blockEditor.Text = "Block Editor";
-            this.blockEditor.UseVisualStyleBackColor = true;
-            this.blockEditor.Click += new System.EventHandler(this.button1_Click);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolsToolStripMenuItem,
+            this.gPToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 8;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // newTimeline
+            // toolsToolStripMenuItem
             // 
-            this.newTimeline.Location = new System.Drawing.Point(175, 12);
-            this.newTimeline.Name = "newTimeline";
-            this.newTimeline.Size = new System.Drawing.Size(81, 23);
-            this.newTimeline.TabIndex = 6;
-            this.newTimeline.Text = "New Timeline";
-            this.newTimeline.UseVisualStyleBackColor = true;
-            this.newTimeline.Click += new System.EventHandler(this.newTimeline_Click);
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.variableViewerToolStripMenuItem,
+            this.blockEditorToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.toolsToolStripMenuItem.Text = "Tools";
             // 
-            // saveButton
+            // gPToolStripMenuItem
             // 
-            this.saveButton.Location = new System.Drawing.Point(262, 12);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(92, 23);
-            this.saveButton.TabIndex = 7;
-            this.saveButton.Text = "Save Edits";
-            this.saveButton.UseVisualStyleBackColor = true;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            this.gPToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.recordButton,
+            this.stopButtonRecord,
+            this.newTimelineToolStripMenuItem,
+            this.saveEditsToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.playButton,
+            this.stopButton});
+            this.gPToolStripMenuItem.Name = "gPToolStripMenuItem";
+            this.gPToolStripMenuItem.Size = new System.Drawing.Size(34, 20);
+            this.gPToolStripMenuItem.Text = "GP";
+            // 
+            // recordButton
+            // 
+            this.recordButton.Name = "recordButton";
+            this.recordButton.Size = new System.Drawing.Size(180, 22);
+            this.recordButton.Text = "Record";
+            // 
+            // stopButtonRecord
+            // 
+            this.stopButtonRecord.Name = "stopButtonRecord";
+            this.stopButtonRecord.Size = new System.Drawing.Size(180, 22);
+            this.stopButtonRecord.Text = "Stop";
+            // 
+            // newTimelineToolStripMenuItem
+            // 
+            this.newTimelineToolStripMenuItem.Name = "newTimelineToolStripMenuItem";
+            this.newTimelineToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newTimelineToolStripMenuItem.Text = "New Timeline";
+            // 
+            // saveEditsToolStripMenuItem
+            // 
+            this.saveEditsToolStripMenuItem.Name = "saveEditsToolStripMenuItem";
+            this.saveEditsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveEditsToolStripMenuItem.Text = "Save Edits";
+            // 
+            // variableViewerToolStripMenuItem
+            // 
+            this.variableViewerToolStripMenuItem.Name = "variableViewerToolStripMenuItem";
+            this.variableViewerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.variableViewerToolStripMenuItem.Text = "Variable Viewer";
+            this.variableViewerToolStripMenuItem.Click += new System.EventHandler(this.variableViewerToolStripMenuItem_Click);
+            // 
+            // blockEditorToolStripMenuItem
+            // 
+            this.blockEditorToolStripMenuItem.Name = "blockEditorToolStripMenuItem";
+            this.blockEditorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.blockEditorToolStripMenuItem.Text = "Block Editor";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // playButton
+            // 
+            this.playButton.Name = "playButton";
+            this.playButton.Size = new System.Drawing.Size(180, 22);
+            this.playButton.Text = "Play";
+            this.playButton.Click += new System.EventHandler(this.playToolStripMenuItem_Click);
+            // 
+            // stopButton
+            // 
+            this.stopButton.Name = "stopButton";
+            this.stopButton.Size = new System.Drawing.Size(180, 22);
+            this.stopButton.Text = "Stop";
             // 
             // Timeline
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.saveButton);
-            this.Controls.Add(this.newTimeline);
-            this.Controls.Add(this.blockEditor);
             this.Controls.Add(this.canvas);
-            this.Controls.Add(this.playButton);
-            this.Controls.Add(this.stopButton);
-            this.Controls.Add(this.stopButtonRecord);
-            this.Controls.Add(this.recordButton);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Timeline";
             this.Text = "Smack My Meat Audio Timeline";
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button recordButton;
-        private System.Windows.Forms.Button stopButtonRecord;
-        private System.Windows.Forms.Button stopButton;
-        private System.Windows.Forms.Button playButton;
         private System.Windows.Forms.PictureBox canvas;
-        private System.Windows.Forms.Button blockEditor;
-        private System.Windows.Forms.Button newTimeline;
-        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem variableViewerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem blockEditorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gPToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem recordButton;
+        private System.Windows.Forms.ToolStripMenuItem stopButtonRecord;
+        private System.Windows.Forms.ToolStripMenuItem newTimelineToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveEditsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem playButton;
+        private System.Windows.Forms.ToolStripMenuItem stopButton;
     }
 }
